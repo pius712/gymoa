@@ -7,6 +7,7 @@ tasks.getByName("jar") {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation(project(":storage:db-core"))
     implementation(project(":gymoa-admin-api"))
     implementation("org.springframework.boot:spring-boot-starter-web")

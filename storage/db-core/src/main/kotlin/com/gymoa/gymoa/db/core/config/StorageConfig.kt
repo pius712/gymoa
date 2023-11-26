@@ -10,4 +10,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
 @EntityScan(basePackages = ["com.gymoa.gymoa.db.core"])
 @EnableJpaRepositories(basePackages = ["com.gymoa.gymoa.db.core"])
 class StorageConfig {
+
+
 }
