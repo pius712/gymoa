@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: boilerplate
   jackson:
     default-property-inclusion: non_null
   datasource:
@@ -27,6 +25,11 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+
+gymoa:
+  datasource:
+    #    maximum-pool-size: 20 cpu 수에 따라 다르게 조정하는게 좋음.
+    jdbc-url: jdbc:h2:mem:testdb;MODE=MYSQL
 ---
 
 spring:
