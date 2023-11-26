@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: boilerplate
+  jackson:
+    default-property-inclusion: non_null
+
+  mvc.throw-exception-if-no-handler-found: true
+  web.resources.add-mappings: false
+  config:
+    import:
+      - db-core.yaml
+
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: staging
+
+---
+spring:
+  config:
+    activate:
+      on-profile: staging
