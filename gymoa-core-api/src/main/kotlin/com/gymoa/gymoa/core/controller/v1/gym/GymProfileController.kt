@@ -1,11 +1,9 @@
 package com.gymoa.gymoa.core.controller.v1.gym
 
 import com.gymoa.gymoa.core.controller.v1.gym.request.GymProfileCreateRequestDto
+import com.gymoa.gymoa.core.domain.gym.gymprofile.GymProfile
 import com.gymoa.gymoa.core.domain.gym.gymprofile.GymProfileService
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1/gym")
@@ -16,5 +14,9 @@ class GymProfileController(private val gymProfileService: GymProfileService) {
         gymProfileService.createProfile(dto.toCreateRequest())
     }
 
-    
+
+    @GetMapping("/all")
+    fun getAllGym(): List<GymProfile> {
+        return gymProfileService.readAllGym();
+    }
 }

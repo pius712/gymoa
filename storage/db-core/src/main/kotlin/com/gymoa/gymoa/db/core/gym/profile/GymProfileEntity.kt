@@ -6,6 +6,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.Table
 import org.hibernate.annotations.Comment
 
+@Comment("gym의 프로필 정보")
 @Entity
 @Table(name = "gym_profile")
 data class GymProfileEntity(
