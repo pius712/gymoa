@@ -7,10 +7,13 @@ import org.springframework.stereotype.Component
 @Component
 class GymCommentAppender(private val gymReviewRepository: GymReviewRepository) {
 
-    fun append(postId: Long, profileId: Long, content: String): Long {
+    fun append(postId: Long, userProfileId: Long, content: String, rating: Long): Long {
         return gymReviewRepository.save(
             GymReviewEntity(
-                postId = postId, profileId = profileId, content = content
+                gymPostId = postId,
+                userProfileId = userProfileId,
+                content = content,
+                rating = rating,
             )
         ).id!!
     }

@@ -13,7 +13,7 @@ class GymPostWriter(
     fun write(title: String) {
         gymPostRepository.save(
             GymPostEntity(
-                title = title
+                title = title, gymProfileId = 9831
             )
         )
     }

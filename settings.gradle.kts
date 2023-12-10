@@ -2,6 +2,7 @@ rootProject.name = "gymoa"
 
 include(
     "gymoa-core-api",
+    "gymoa-core-common",
     "gymoa-admin-api",
     "storage:db-core"
 )

@@ -10,6 +10,11 @@ import org.hibernate.annotations.Comment
 data class GymReviewEntity(
     @Column(name = "ref_gym_post_id")
     val gymPostId: Long,
-    
-    val content: String
+
+    @Column(name = "ref_user_profile_id")
+    val userProfileId: Long,
+
+    val content: String,
+
+    val rating: Long,
 ) : BaseEntity()
