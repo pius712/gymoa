@@ -2,10 +2,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
-    kotlin("plugin.spring")  apply false
+    kotlin("plugin.spring") apply false
     kotlin("plugin.jpa") apply false
-    id("org.springframework.boot")  apply false
-    id("io.spring.dependency-management")  apply false
+    id("org.springframework.boot") apply false
+    id("io.spring.dependency-management") apply false
 }
 
 
@@ -13,7 +13,7 @@ java.sourceCompatibility = JavaVersion.valueOf("VERSION_${property("javaVersion"
 
 val projectGroup: String by project;
 val applicationVersion: String by project;
-
+val mockkVersion: String by project;
 
 allprojects {
     group = projectGroup
@@ -37,6 +37,7 @@ subprojects {
         implementation("org.jetbrains.kotlin:kotlin-reflect")
 
         testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testImplementation("io.mockk:mockk:${mockkVersion}")
     }
 
     java.sourceCompatibility = JavaVersion.valueOf("VERSION_${property("javaVersion")}")

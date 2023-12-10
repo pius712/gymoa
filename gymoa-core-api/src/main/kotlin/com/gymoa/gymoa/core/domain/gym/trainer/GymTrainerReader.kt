@@ -3,6 +3,7 @@ package com.gymoa.gymoa.core.domain.gym.trainer
 import com.gymoa.gymoa.db.core.gym.GymTrainerRepository
 import com.gymoa.gymoa.db.core.trainer.TrainerEntity
 import com.gymoa.gymoa.db.core.trainer.TrainerRepository
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 
 @Component
@@ -16,6 +17,13 @@ class GymTrainerReader(
         return trainerRepository.findByIdIn(trainerIds).map { toGymTrainer(it) }
     }
 
+    fun read(gymId: Long, trainerId: Long): GymTrainer {
+        gymTrainerRepository.findByGymIdAndTrainerId(gymId, trainerId) ?: throw RuntimeException("")
+
+        return trainerRepository.findByIdOrNull(trainerId)?.let {
+            toGymTrainer(it)
+        } ?: throw RuntimeException("");
+    }
 
     private fun toGymTrainer(entity: TrainerEntity): GymTrainer {
         return GymTrainer(
